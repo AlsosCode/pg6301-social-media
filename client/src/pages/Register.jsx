@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../apiBase';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -14,7 +15,7 @@ function Register() {
       if (!username || !name || !password) {
         return setError('Please fill in all fields.');
       }
-      const res = await fetch('http://localhost:3001/api/register', {
+      const res = await fetch(`${API_BASE_URL}/api/register`, {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },

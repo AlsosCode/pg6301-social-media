@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../apiBase'; // import helper
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -10,7 +11,7 @@ function Login() {
   async function handleLogin() {
     try {
       setError(null);
-      const res = await fetch('http://localhost:3001/api/login', {
+      const res = await fetch(`${API_BASE_URL}/api/login`, {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -47,14 +48,12 @@ function Login() {
       </div>
       <button className="button1" onClick={handleLogin}>Log in</button>
 
-
       <hr />
       <p>Or log in with Google:</p>
-      <a href="http://localhost:3001/auth/google">
-      <button type="button" class="login-with-google-btn" >
-  Sign in with Google
-</button>
-
+      <a href={`${API_BASE_URL}/auth/google`}>
+        <button type="button" className="login-with-google-btn">
+          Sign in with Google
+        </button>
       </a>
     </div>
   );

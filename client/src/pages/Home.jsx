@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import API_BASE_URL from '../apiBase'; // <-- import your helper
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -13,7 +14,7 @@ function Home() {
   async function fetchAllPosts() {
     try {
       setError(null);
-      const res = await fetch('http://localhost:3001/api/posts', {
+      const res = await fetch(`${API_BASE_URL}/api/posts`, {
         credentials: 'include'
       });
       if (!res.ok) {
@@ -33,7 +34,7 @@ function Home() {
       if (!title || !text) {
         throw new Error('Title and text are required');
       }
-      const res = await fetch('http://localhost:3001/api/posts', {
+      const res = await fetch(`${API_BASE_URL}/api/posts`, {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -54,7 +55,7 @@ function Home() {
   async function reactToPost(postId, emoji) {
     try {
       setError(null);
-      const res = await fetch(`http://localhost:3001/api/posts/${postId}/react`, {
+      const res = await fetch(`${API_BASE_URL}/api/posts/${postId}/react`, {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -74,7 +75,7 @@ function Home() {
     try {
       setError(null);
       if (!commentText) return;
-      const res = await fetch(`http://localhost:3001/api/posts/${postId}/comments`, {
+      const res = await fetch(`${API_BASE_URL}/api/posts/${postId}/comments`, {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -93,7 +94,6 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
-
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       <div style={{ marginBottom: '1rem' }}>
@@ -110,26 +110,10 @@ function Home() {
           onChange={(e) => setText(e.target.value)}
           style={{ display: 'block', marginBottom: '0.5rem' }}
         />
-<button className="button4" onClick={createPost}>
-  <div class="svg-wrapper-1">
-    <div class="svg-wrapper">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="24"
-        height="24"
-      >
-        <path fill="none" d="M0 0h24v24H0z"></path>
-        <path
-          fill="currentColor"
-          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-        ></path>
-      </svg>
-    </div>
-  </div>
-  <span>Post</span>
-</button>
-
+        <button className="button4" onClick={createPost}>
+          {/* ... your SVG, etc. ... */}
+          <span>Post</span>
+        </button>
       </div>
 
       <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -197,10 +181,8 @@ function CommentForm({ postId, onAddComment }) {
         style={{ width: '200px' }}
       />
       <button className="button1" onClick={handleComment}>Comment</button>
-
     </div>
   );
 }
-
 
 export default Home;

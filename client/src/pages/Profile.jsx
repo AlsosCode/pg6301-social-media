@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import API_BASE_URL from '../apiBase';
 
 function Profile() {
   const [sessionInfo, setSessionInfo] = useState(null);
@@ -16,7 +17,7 @@ function Profile() {
   async function fetchSession() {
     try {
       setError(null);
-      const res = await fetch('http://localhost:3001/api/session', {
+      const res = await fetch(`${API_BASE_URL}/api/session`, {
         credentials: 'include'
       });
       const data = await res.json();
@@ -32,7 +33,7 @@ function Profile() {
 
   async function fetchAllPosts() {
     try {
-      const res = await fetch('http://localhost:3001/api/posts', {
+      const res = await fetch(`${API_BASE_URL}/api/posts`, {
         credentials: 'include'
       });
       if (!res.ok) {
@@ -61,7 +62,7 @@ function Profile() {
   async function saveEdit(postId) {
     try {
       setError(null);
-      const res = await fetch(`http://localhost:3001/api/posts/${postId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/posts/${postId}`, {
         method: 'PUT',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -84,7 +85,7 @@ function Profile() {
   async function deletePost(postId) {
     try {
       setError(null);
-      const res = await fetch(`http://localhost:3001/api/posts/${postId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/posts/${postId}`, {
         method: 'DELETE',
         credentials: 'include'
       });
@@ -147,7 +148,6 @@ function Profile() {
                   <p>{post.text}</p>
                   <button className="button1" onClick={() => startEditing(post)}>Edit</button>
                   <button className="button3" onClick={() => deletePost(post.id)}>Delete</button>
-
                 </>
               )}
             </li>
