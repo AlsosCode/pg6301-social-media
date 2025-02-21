@@ -1,7 +1,5 @@
-node_modules/
-client/node_modules/
-server/node_modules/
-.DS_Store
-.dist
-.env
+node_modules
 .husky
+.env
+client/dist
+
