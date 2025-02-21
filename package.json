@@ -4,7 +4,9 @@
     "scripts": {
         "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
         "start": "npm run start --prefix server",
-        "postinstall": "cd server && npm install",
+        "postinstall": "npm run install:server && npm run install:client",
+        "install:server": "cd server && npm install",
+        "install:client": "cd client && npm install",
         "build": "cd client && npm run build",
         "format": "prettier --write  client/**/*.{jsx,js} server/**/*.{jsx,js}",
         "format:check": "prettier --check  client/**/*.{jsx,js} server/**/*.{jsx,js}",
