@@ -17,5 +17,10 @@
         "prettier": "^3.5.1",
         "supertest": "^6.3.3",
         "vitest": "^0.32.4"
+    },
+    
+    "engines": {
+        "node": "18.x"
     }
+    
 }
