@@ -366,6 +366,17 @@ app.post('/api/posts/:postId/comments', requireLogin, (req, res) => {
   res.json({ success: true });
 });
 
+// If you built your React app into `client/dist`:
+const clientBuildPath = path.join(__dirname, '../client/dist');
+
+// Serve the static files
+app.use(express.static(clientBuildPath));
+
+// For any GET request that doesn’t match an API route, send back React’s index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(clientBuildPath, 'index.html'));
+});
+
 // -------------------------------------
 // Start Server
 // -------------------------------------
