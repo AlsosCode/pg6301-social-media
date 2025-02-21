@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "$2b$10$kXOPIzhzIHssRRdPPyxfEud08GpLE8kWTP88zebSVQQfyPOy9Q1mK",
+      "name": "Admin User",
+      "profileImage": "https://via.placeholder.com/100"
+    },
+    {
+      "id": 2,
+      "username": "alsos",
+      "password": "$2b$10$KCs2gqMPN/OVr8hxHDLqT.20R7HwGvALDP4EkARS1mcp6FhWKJcci",
+      "name": "alsos",
+      "profileImage": "https://via.placeholder.com/100",
+      "verified": false
+    },
+    {
+      "id": 3,
+      "googleId": "100770304033287957393",
+      "name": "Mathias Alsos Paulsen",
+      "username": "mathias.alsos03@gmail.com",
+      "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocIWtKO-WaudAcWFu63OBJoHgfA1AGURpDeTZvhdNsspf_iJ57o=s96-c",
+      "password": null,
+      "verified": true
+    },
+    {
+      "id": 4,
+      "googleId": "111504487661644334437",
+      "name": "Mathias Alsos",
+      "username": "mathiasalsospaulsen@gmail.com",
+      "profileImage": "https://lh3.googleusercontent.com/a/ACg8ocL-RWNFTY05IjXREpD0sgrMoPpZnef10LXcSL0UcWn-kVC-xBu3=s96-c",
+      "password": null,
+      "verified": true
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "authorId": 1,
+      "title": "My First Post",
+      "text": "Hello, this is my first post! It's a bit longer than 10 chars.",
+      "reactions": [
+        {
+          "userId": 2,
+          "reaction": "😂"
+        }
+      ],
+      "comments": []
+    },
+    {
+      "id": 2,
+      "authorId": 3,
+      "title": "My first post",
+      "text": "Whats up everybody, this is my first post when logged in with google",
+      "reactions": [
+        {
+          "userId": 3,
+          "reaction": "❤️"
+        }
+      ],
+      "comments": []
+    },
+    {
+      "id": 3,
+      "authorId": 3,
+      "title": "My new Post",
+      "text": "Hello, this is my new post😁",
+      "reactions": [
+        {
+          "userId": 3,
+          "reaction": "❤️"
+        }
+      ],
+      "comments": []
+    },
+    {
+      "id": 4,
+      "authorId": 4,
+      "title": "hey",
+      "text": "hey im just checking if im verified",
+      "reactions": [],
+      "comments": []
+    }
+  ]
+}

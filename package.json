@@ -1,0 +1,19 @@
+{
+    "name": "my-simple-app",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+        "start": "npm run start --prefix server",
+        "format": "prettier --write  client/**/*.{jsx,js} server/**/*.{jsx,js}",
+        "format:check": "prettier --check  client/**/*.{jsx,js} server/**/*.{jsx,js}",
+        "prepare": "husky install",
+        "test": "vitest --run"
+    },
+    "devDependencies": {
+        "concurrently": "^7.6.0",
+        "husky": "^8.0.0",
+        "prettier": "^3.5.1",
+        "supertest": "^6.3.3",
+        "vitest": "^0.32.4"
+    }
+}
