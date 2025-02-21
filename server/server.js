@@ -60,13 +60,18 @@ function requireLogin(req, res, next) {
   if (!req.session.user) {
     return res.status(403).json({ success: false, message: 'Not logged in' });
   }
-  // 2) Must be verified
+  next();
+}
+
+function requireVerified(req, res, next) {
+  if (!req.session.user) {
+    return res.status(403).json({ success: false, message: 'Not logged in' });
+  }
   if (!req.session.user.verified) {
     return res.status(403).json({ success: false, message: 'User not verified' });
   }
   next();
 }
-
 
 // -------------------------------------
 // Google Login Setup
@@ -252,7 +257,7 @@ app.get('/api/posts/:postId', (req, res) => {
   });
 });
 
-app.post('/api/posts', requireLogin, (req, res) => {
+app.post('/api/posts', requireVerified, (req, res) => {
   const { title, text } = req.body;
   if (!title || !text) {
     return res.status(400).json({ success: false, message: 'Title and text are required' });
@@ -276,7 +281,7 @@ app.post('/api/posts', requireLogin, (req, res) => {
   res.json({ success: true, post: newPost });
 });
 
-app.put('/api/posts/:postId', requireLogin, (req, res) => {
+app.put('/api/posts/:postId', requireVerified, (req, res) => {
   const { postId } = req.params;
   const { title, text } = req.body;
   const data = readData();
@@ -301,7 +306,7 @@ app.put('/api/posts/:postId', requireLogin, (req, res) => {
   res.json({ success: true, post });
 });
 
-app.delete('/api/posts/:postId', requireLogin, (req, res) => {
+app.delete('/api/posts/:postId', requireVerified, (req, res) => {
   const { postId } = req.params;
   const data = readData();
   const postIndex = data.posts.findIndex((p) => p.id === parseInt(postId));
