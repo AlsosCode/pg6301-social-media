@@ -5,6 +5,7 @@
         "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
         "start": "npm run start --prefix server",
         "postinstall": "cd server && npm install",
+        "build": "cd client && npm run build",
         "format": "prettier --write  client/**/*.{jsx,js} server/**/*.{jsx,js}",
         "format:check": "prettier --check  client/**/*.{jsx,js} server/**/*.{jsx,js}",
         "prepare": "husky install",
