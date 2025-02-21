@@ -2,4 +2,4 @@ node_modules
 .husky
 .env
 client/dist
-
+.DS_Store
