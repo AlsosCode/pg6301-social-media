@@ -3,10 +3,8 @@
     "version": "1.0.0",
     "scripts": {
         "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
-        "start": "npm run start --prefix server",
-        "postinstall": "npm run install:server && npm run install:client",
-        "install:server": "cd server && npm install --include=dev && include=devDependencies",
-        "install:client": "cd client && npm install",
+        "start": "node server/server.js",
+        "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
         "build": "cd client && npm run build",
         "format": "prettier --write  client/**/*.{jsx,js} server/**/*.{jsx,js}",
         "format:check": "prettier --check  client/**/*.{jsx,js} server/**/*.{jsx,js}",
