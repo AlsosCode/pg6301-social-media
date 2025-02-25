@@ -19,6 +19,7 @@ Hosted on Heroku in one app. I encountered errors like “Cannot find module \`@
 
 ## Future Improvements
 A real database and more robust error handling would improve scalability.
+Tests and GitHub Coverage
 
 
 <h1>Link til Github Repository:</h1>
