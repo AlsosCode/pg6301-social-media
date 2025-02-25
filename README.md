@@ -3,13 +3,13 @@
 This is a simple **React + Express** application showcasing user registration, login, post creation, reactions, and comments. It is deployed on **Heroku**. The front end uses **Vite** for quick builds and **React Router** for navigation. The back end uses **Express** with session-based authentication.
 
 ## Data Storage
-We chose a local `data.json` for speed and simplicity, avoiding a full database setup. This is suitable for small demos but not production.
+We chose a local `data.json` for speed and simplicity. This is suitable for small demos but not production. Ideally i would use MongoDB but i had some problems setting it up.
 
 ## Verified vs. Unverified
 Unverified users can react to and comment on posts but cannot create, edit, or delete. Verified users can create their own posts, then edit or delete them. We handle this with two middlewares: `requireLogin` (checks session) and `requireVerified` (checks if `verified === true`).
 
 ## Deployment
-Hosted on Heroku in one app. We encountered errors like “Cannot find module \`@vitejs/plugin-react\`,” which we fixed by moving it into `dependencies`. Another issue was “Failed to fetch” in production, resolved by replacing `http://localhost:3001` with environment-based URLs.
+Hosted on Heroku in one app. I encountered errors like “Cannot find module \`@vitejs/plugin-react\`,” which I fixed by moving it into `dependencies`. Another issue was “Failed to fetch” in production, resolved by replacing `http://localhost:3001` with environment-based URLs.
 
 ## Local Setup
 1. Clone the repo and run `npm install` in the root folder.  
@@ -18,7 +18,7 @@ Hosted on Heroku in one app. We encountered errors like “Cannot find module \`
 4. Visit [http://localhost:5173](http://localhost:5173) to interact with the app.
 
 ## Future Improvements
-A real database and more robust error handling would improve scalability. This project serves as a PG6301 assignment demo, focusing on basic web and API design principles.
+A real database and more robust error handling would improve scalability.
 
 
 <h1>Link til Github Repository:</h1>
