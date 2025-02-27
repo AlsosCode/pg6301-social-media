@@ -136,7 +136,7 @@ app.get(
 
 app.get(
   '/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: 'http://localhost:5173/login' }),
+  passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
     const { id, name, username, verified } = req.user;
     req.session.user = { id, name, username, verified };
