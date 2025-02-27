@@ -93,7 +93,7 @@ passport.deserializeUser((id, done) => {
 
 const callbackURL =
   process.env.NODE_ENV === 'production'
-    ? 'https://my-simple-social-media-app.herokuapp.com/auth/google/callback'
+    ? 'my-simple-social-media-app-c200fde4e34f.herokuapp.com/auth/google/callback'
     : 'http://localhost:3001/auth/google/callback';
 
 passport.use(
