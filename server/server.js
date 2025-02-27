@@ -91,12 +91,17 @@ passport.deserializeUser((id, done) => {
   }
 });
 
+const callbackURL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://my-app.herokuapp.com/auth/google/callback'
+    : 'http://localhost:3001/auth/google/callback';
+
 passport.use(
   new GoogleStrategy(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: 'http://localhost:3001/auth/google/callback'
+      callbackURL
     },
     (accessToken, refreshToken, profile, done) => {
       const data = readData();
