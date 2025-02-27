@@ -140,7 +140,7 @@ app.get(
   (req, res) => {
     const { id, name, username, verified } = req.user;
     req.session.user = { id, name, username, verified };
-    res.redirect('http://localhost:5173/profile');
+    res.redirect('/profile');
   }
 );
 
